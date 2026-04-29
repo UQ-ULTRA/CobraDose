@@ -1,0 +1,9 @@
+citHeader("To cite CobraDose in publications use:")
+
+bibentry(
+   bibtype = "Manual",
+   title = "CobraDose: copula-based Bayesian model averaging for dose selection",
+   author = c(person("Luke", "Hagar"), person(c("Min"), "Zhang"), person(c("Andrew", "J."), "Martin")),
+   year = 2026,
+   note = "R package version 0.0.1",
+   url = "https://github.com/UQ-ULTRA/CobraDose")
