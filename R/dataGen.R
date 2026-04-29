@@ -123,7 +123,7 @@ rBivarCop <- function(n, marg1, m1, c1, marg2, m2, c2, cop, tau) {
 #'
 #' @return A list of length 3 for use in NIMBLE. Element 1 contains the number of participants, groups, and dose assignments. Element 2 contains the bivariate relative increases. Element 3 contains the data-generating parameters (returned as a check).
 #' @export
-dataGen <- function(n = 18, gs = c(6, 4, 4, 4), marg1, marg2, cop, hier = TRUE,
+dataGen <- function(n, gs, marg1, marg2, cop, hier = TRUE,
                     hyper_mu, hyper_prec, mus_nohier = NULL, sigmas_nohier = NULL,
                     seed = 1){
 
