@@ -3,3 +3,5 @@
 ^CobraDose\.Rproj$
 ^LICENSE\.md$
 ^README\.Rmd$
+.Rhistory
+^test_.*

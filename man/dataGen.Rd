@@ -5,8 +5,8 @@
 \title{Generate a (hierarchical) sample across various doses}
 \usage{
 dataGen(
-  n = 18,
-  gs = c(6, 4, 4, 4),
+  n,
+  gs,
   marg1,
   marg2,
   cop,
@@ -51,8 +51,8 @@ deviation parameters for \eqn{m_1}, \eqn{m_2}, \eqn{c_1}, \eqn{c_2}, and logit(\
 A list of length 3 for use in NIMBLE. Element 1 contains the number of participants, groups, and dose assignments. Element 2 contains the bivariate relative increases. Element 3 contains the data-generating parameters (returned as a check).
 }
 \description{
-This function takes in a sample size of n as well as inputs for the
-group sizes and hierarchical structure and returns a sample of n
+This function takes in a sample size of \code{n} as well as inputs for the
+group sizes and hierarchical structure and returns a sample of \code{n}
 bivariate observations
 }
 \examples{
