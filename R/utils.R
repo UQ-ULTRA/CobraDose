@@ -6,11 +6,11 @@
 #' @return Invisibly returns `NULL`.
 #'
 #' @examples
-#' register_bivar_copula_distribution()
+#' registerBivarCopulaDistribution()
 #'
 #' @export
 
-register_bivar_copula_distribution <- function() {
+registerBivarCopulaDistribution <- function() {
   nimble::registerDistributions(
     list(
       dBivarCopula = list(
@@ -36,18 +36,18 @@ register_bivar_copula_distribution <- function() {
 #' @return A vector of probabilities
 #' @export
 
-summarize_model_probs <- function(mat){
+summarizeModelProbs <- function(mat){
 
   # Coerce to matrix early so we have a consistent ncol() to refer to
   if (is.null(mat)) {
-    warning("summarize_model_probs received NULL input. Likely all simulations failed; check the foreach .errorhandling setting and worker errors.")
+    warning("summarizeModelProbs received NULL input. Likely all simulations failed; check the foreach .errorhandling setting and worker errors.")
     return(NA_real_)   # NA (number of columns is unknown)
   }
   if (is.null(dim(mat))) {
     mat <- matrix(mat, nrow = 1)
   }
   if (nrow(mat) == 0) {
-    warning("summarize_model_probs received a matrix with zero rows. Likely all simulations failed; check the foreach .errorhandling setting and worker errors.")
+    warning("summarizeModelProbs received a matrix with zero rows. Likely all simulations failed; check the foreach .errorhandling setting and worker errors.")
     return(rep(NA_real_, ncol(mat)))   # NA based on number of columns
   }
 
