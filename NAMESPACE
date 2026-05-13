@@ -2,6 +2,7 @@
 
 export(dBivarCopula)
 export(dataGen)
+export(initFromData)
 export(rBivarCop)
 export(rBivarCopula)
 export(registerBivarCopulaDistribution)

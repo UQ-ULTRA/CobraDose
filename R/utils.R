@@ -23,7 +23,56 @@ registerBivarCopulaDistribution <- function() {
   invisible(NULL)
 }
 
+#' Helper function to get initial values for the means and CVs for each dose
+#'
+#' This function takes in the data corresponding to one endpoint and
+#' returns a list of hyperparameters for MCMC initialization
+#'
+#' @param y a vector of observations (one endpoint)
+#' @param group a vector denoting group membership
+#'
+#' @return A list of hyperparameters
+#' @keywords internal
 
+initFromData <- function(y, group) {
+
+  G <- max(group) ## extract the number of group
+
+  m <- numeric(G) ## initialize group-specific vectors for mean
+  v <- numeric(G) ## variance
+  c <- numeric(G) ## and cv
+
+  z_m <- numeric(G) ## initialize variables on the standard normal scale
+  z_c <- numeric(G)
+
+  for(g in 1:G) {
+    idx <- which(group == g) ## get observations in group
+    y_g <- y[idx]
+
+    m[g] <- mean(y_g) ## compute group-specific summaries
+    v[g]  <- max(var(y_g), 1e-3)
+
+    c[g] <- sqrt(v[g])/m[g]
+  }
+
+  mu_m <- mean(m) ## get initial hyperparameters for truncated normal on group means
+  sigma_m <- max(sd(m), 1e-2)
+
+  mu_c <- mean(c) ## initial hyperparameters for truncated normal on group CVs
+  sigma_c <- max(sd(c), 1e-2)
+
+  lower_m <- -mu_m/sigma_m
+  lower_c <- -mu_c/sigma_c
+
+  for (g in 1:G){  ## get initial normal variable values (truncate a value corresponding to 0)
+    z_m[g] <- max((m[g] - mu_m)/sigma_m, lower_m + 1e-4)
+    z_c[g] <- max((c[g]   - mu_c)/sigma_c, lower_c + 1e-4)
+  }
+
+  ## return list of hyperparameters
+  list(z_m = z_m, z_c = z_c, mu_m = mu_m, mu_c = mu_c,
+       sigma_m = sigma_m, sigma_c = sigma_c)
+}
 
 #' Determine probability of each submodel having largest posterior probability
 #'
@@ -61,4 +110,54 @@ summarizeModelProbs <- function(mat){
 }
 
 
+#' Helper function to get initial values for the means and CVs for each dose
+#'
+#' This function takes in the data corresponding to one endpoint and
+#' returns a list of hyperparameters for MCMC initialization. This function
+#' is only used internally.
+#'
+#' @param y a vector of observations (one endpoint)
+#' @param group a vector denoting group/dose membership
+#'
+#' @return A list of hyperparameters
+#' @export
 
+initFromData <- function(y, group) {
+
+  G <- max(group) ## extract the number of group
+
+  m <- numeric(G) ## initialize group-specific vectors for mean
+  v <- numeric(G) ## variance
+  c <- numeric(G) ## and cv
+
+  z_m <- numeric(G) ## initialize variables on the standard normal scale
+  z_c <- numeric(G)
+
+  for(g in 1:G) {
+    idx <- which(group == g) ## get observations in group
+    y_g <- y[idx]
+
+    m[g] <- mean(y_g) ## compute group-specific summaries
+    v[g]  <- max(stats::var(y_g), 1e-3)
+
+    c[g] <- sqrt(v[g])/m[g]
+  }
+
+  mu_m <- mean(m) ## get initial hyperparameters for truncated normal on group means
+  sigma_m <- max(stats::sd(m), 1e-2)
+
+  mu_c <- mean(c) ## initial hyperparameters for truncated normal on group CVs
+  sigma_c <- max(stats::sd(c), 1e-2)
+
+  lower_m <- -mu_m/sigma_m
+  lower_c <- -mu_c/sigma_c
+
+  for (g in 1:G){  ## get initial normal variable values (truncate a value corresponding to 0)
+    z_m[g] <- max((m[g] - mu_m)/sigma_m, lower_m + 1e-4)
+    z_c[g] <- max((c[g]   - mu_c)/sigma_c, lower_c + 1e-4)
+  }
+
+  ## return list of hyperparameters
+  list(z_m = z_m, z_c = z_c, mu_m = mu_m, mu_c = mu_c,
+       sigma_m = sigma_m, sigma_c = sigma_c)
+}
