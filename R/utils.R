@@ -8,7 +8,7 @@
 #' @examples
 #' registerBivarCopulaDistribution()
 #'
-#' @export
+#' @keywords internal
 
 registerBivarCopulaDistribution <- function() {
   nimble::registerDistributions(
