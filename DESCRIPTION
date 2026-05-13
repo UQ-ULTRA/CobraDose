@@ -4,9 +4,10 @@ Version: 0.0.1
 Author: Luke Hagar [aut, cre], Min Zhang [aut, cre], Andrew J. Martin [aut]
 Maintainer: Luke Hagar <l.hagar@uq.edu.au>
 Description: A framework for posterior predictive inference based on two endpoints that models dependence via copulas and accounts for uncertainty in both marginal distributions and dependence structures through Bayesian model averaging.
+Depends:
+	nimble
 Imports: 
     stats,
-    nimble, 
 	copula,
 	truncnorm,
 	foreach,
