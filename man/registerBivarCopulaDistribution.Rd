@@ -17,4 +17,3 @@ can be used inside NIMBLE model code.
 registerBivarCopulaDistribution()
 
 }
-\keyword{internal}
