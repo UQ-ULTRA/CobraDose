@@ -8,7 +8,7 @@
 \method{print}{bma.sample}(x, ...)
 }
 \arguments{
-\item{x}{an bma.sample object}
+\item{x}{a bma.sample object}
 }
 \description{
 Helper function to print bma.sample objects

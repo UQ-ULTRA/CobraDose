@@ -356,7 +356,7 @@ approximatePosterior <- function(
 #'
 #' @description Helper function to print bma.sample objects
 #'
-#' @param x an bma.sample object
+#' @param x a bma.sample object
 #'
 #' @rdname bma.sample-methods
 #' @method print bma.sample
@@ -382,9 +382,6 @@ print.bma.sample <- function(x, ...) {
   ## print R-hat table
   print(tab)
 
-  ## Return invisibly
-  invisible(x)
-
   ## extract posterior probability summaries
   both_summary <- x$post_probs[[3]]
 
@@ -399,4 +396,7 @@ print.bma.sample <- function(x, ...) {
   if (invert == TRUE){
     cat("\nNote: the ratios for the first endpoint were inverted to account for negative dependence between the endpoints.")
   }
+
+  ## Return invisibly
+  invisible(x)
 }

@@ -100,7 +100,7 @@ dBivarCopula <- nimble::nimbleFunction(
   }
 )
 
-#' Generate from the bivariate distribution (only used to stop error messages)
+#' Generate from the bivariate distribution (used only by nimble)
 #'
 #' This function takes in a sample size of n = 1 as well as inputs for the
 #' marginal distributions, means, variances, copula, and Kendall's tau

@@ -5,16 +5,18 @@ Author: Luke Hagar [aut, cre], Min Zhang [aut, cre], Andrew J. Martin [aut]
 Maintainer: Luke Hagar <l.hagar@uq.edu.au>
 Description: A framework for posterior predictive inference based on two endpoints that models dependence via copulas and accounts for uncertainty in both marginal distributions and dependence structures through Bayesian model averaging.
 Depends:
-	nimble
+	nimble,
+	foreach
 Imports: 
     stats,
 	copula,
 	truncnorm,
-	foreach,
 	doParallel,
 	doSNOW,
 	posterior,
-	MASS
+	MASS,
+	methods,
+	snow
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3

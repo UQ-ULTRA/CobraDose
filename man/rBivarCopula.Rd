@@ -2,7 +2,7 @@
 % Please edit documentation in R/dBivarCopula.R
 \name{rBivarCopula}
 \alias{rBivarCopula}
-\title{Generate from the bivariate distribution (only used to stop error messages)}
+\title{Generate from the bivariate distribution (used only by nimble)}
 \usage{
 rBivarCopula(n, marg1, m1, c1, marg2, m2, c2, cop, tau)
 }
