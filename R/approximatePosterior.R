@@ -346,7 +346,8 @@ approximatePosterior <- function(
   rownames(both_summary) <- c("independence", "clayton", "gaussian", "gumbel")
 
   return(structure(list(samples_dose = dose_list, rHat = rHat,
-                        post_probs = list(marg_summary, cop_summary, both_summary), invert = invert),
+                        post_probs = list(marg_summary, cop_summary, both_summary), invert = invert,
+                        data = data, group = group),
                    class = "bma.sample"))
 
 }

@@ -3,6 +3,7 @@
 S3method(print,bma.sample)
 S3method(print,post.pred)
 export(approximatePosterior)
+export(contourDoses)
 export(dBivarCopula)
 export(dataGen)
 export(initFromData)

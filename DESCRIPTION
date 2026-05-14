@@ -16,7 +16,9 @@ Imports:
 	posterior,
 	MASS,
 	methods,
-	snow
+	snow,
+	graphics,
+	grDevices
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
