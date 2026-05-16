@@ -39,7 +39,7 @@
 #' approximatePosterior(data = data.temp,
 #'        group = rep(1:4, c(6, 4, 4, 4)),
 #'        hyper_mu = c(1, 0.5, 0.25, 0.2, 0.1, 0.25),
-#         hyper_prec = c(400, 400, 20, 800, 800, 20))
+#         hyper_prec = c(5, 5, 2, 5, 5, 2))
 #' }
 #'
 #' @export
@@ -50,7 +50,7 @@ approximatePosterior <- function(
     group = NULL,
 
     hyper_mu = c(1, 0.5, 0.25, 0.2, 0.1, 0.25),
-    hyper_prec = c(400, 400, 20, 800, 800, 20),
+    hyper_prec = c(5, 5, 2, 5, 5, 2),
 
     alpha_marg = c(1.625, 1),
     alpha_cop = c(1, 1, 1, 1),
@@ -344,6 +344,10 @@ approximatePosterior <- function(
 
   colnames(both_summary) <- c("gamma_gamma", "gamma_lognormal", "lognormal_gamma", "lognormal_lognormal")
   rownames(both_summary) <- c("independence", "clayton", "gaussian", "gumbel")
+
+  if (invert == TRUE){
+    data[,1] <- 1/data[,1] ## return data to original scale for storing
+  }
 
   return(structure(list(samples_dose = dose_list, rHat = rHat,
                         post_probs = list(marg_summary, cop_summary, both_summary), invert = invert,
