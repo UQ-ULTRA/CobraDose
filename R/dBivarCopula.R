@@ -115,7 +115,7 @@ dBivarCopula <- nimble::nimbleFunction(
 #' @param c2 The coefficient of variation of the marginal distribution for endpoint 2
 #' @param cop The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel)
 #' @param tau Kendall's tau (must be between 0 and 1 for this example)
-#' @importFrom nimble nimStop nimNumeric
+#' @importFrom nimble nimStop nimNumeric ilogit
 #'
 #' @return A bivariate observation
 #' @export

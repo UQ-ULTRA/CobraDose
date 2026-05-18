@@ -9,7 +9,7 @@ approximatePosterior(
   data = NULL,
   group = NULL,
   hyper_mu = c(1, 0.5, 0.25, 0.2, 0.1, 0.25),
-  hyper_prec = c(400, 400, 20, 800, 800, 20),
+  hyper_prec = c(5, 5, 2, 5, 5, 2),
   alpha_marg = c(1.625, 1),
   alpha_cop = c(1, 1, 1, 1),
   mcmc_niter = 3500,

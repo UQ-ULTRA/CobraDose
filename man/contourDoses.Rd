@@ -25,14 +25,14 @@ contourDoses(
 
 \item{n_cores}{Number of parallel cores to use with parallelization.}
 
-\item{output_prefix}{Prefix used for output PNG and CSV files.}
+\item{output_prefix}{Prefix used for output PDF and CSV files.}
 
 \item{overwrite}{Logical; if \code{FALSE}, existing CSV files will not be overwritten.}
 }
 \value{
-Returns a contour plot for each dose as output to a PNG file; the samples from
+Returns a contour plot for each dose as output to a PDF file; the samples from
 the posterior predictive distribution used to make the contour plot for each dose may
-be output to CSV files
+be output to CSV files. Those samples can be used to create more tailored contour plots.
 }
 \description{
 This function takes in the output from the function \code{approximatePosterior()}.
