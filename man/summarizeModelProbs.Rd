@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{summarizeModelProbs}
 \alias{summarizeModelProbs}
-\title{Determine probability of each submodel having largest posterior probability}
+\title{Determine the probability of each candidate model having largest posterior probability}
 \usage{
 summarizeModelProbs(mat)
 }
@@ -14,6 +14,6 @@ A vector of probabilities
 }
 \description{
 This function takes in a matrix of posterior probabilities, with one column
-per submodel and returns the probability of each submodel having the largest
+per candidate model and returns the probability of each candidate model having the largest
 posterior probability
 }

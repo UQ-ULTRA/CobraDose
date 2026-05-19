@@ -31,7 +31,7 @@ contourDoses(
 }
 \value{
 Returns a contour plot for each dose as output to a PDF file; the samples from
-the posterior predictive distribution used to make the contour plot for each dose may
+the posterior predictive distribution used to make the contour plot for each dose will
 be output to CSV files. Those samples can be used to create more tailored contour plots.
 }
 \description{

@@ -74,10 +74,10 @@ initFromData <- function(y, group) {
        sigma_m = sigma_m, sigma_c = sigma_c)
 }
 
-#' Determine probability of each submodel having largest posterior probability
+#' Determine the probability of each candidate model having largest posterior probability
 #'
 #' This function takes in a matrix of posterior probabilities, with one column
-#' per submodel and returns the probability of each submodel having the largest
+#' per candidate model and returns the probability of each candidate model having the largest
 #' posterior probability
 #'
 #' @param mat a matrix of posterior probabilities

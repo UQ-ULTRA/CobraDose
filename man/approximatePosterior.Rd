@@ -24,7 +24,7 @@ approximatePosterior(
 
 \item{data}{Matrix with two columns (one column per biomarker).}
 
-\item{group}{a vector of group assignments (length must be the column length of \code{data}).}
+\item{group}{a vector of group assignments (length equals the number of rows in \code{data}).}
 
 \item{hyper_mu}{Hyper-mean parameters for data analysis.}
 
@@ -46,7 +46,7 @@ approximatePosterior(
 }
 \value{
 Returns a list with the posterior sample, R hat statistics, and posterior probabilities for
-candidate model selection; the posterior sample may be output to a .csv file
+candidate model selection; the posterior sample will be output to a .csv file
 }
 \description{
 This function takes in a bivariate sample, prior distributions, and

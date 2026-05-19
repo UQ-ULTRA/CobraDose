@@ -8,7 +8,7 @@
 #'
 #' @param output_dir Directory where the scripts should be written.
 #' @param data Matrix with two columns (one column per biomarker).
-#' @param group a vector of group assignments (length must be the column length of `data`).
+#' @param group a vector of group assignments (length equals the number of rows in `data`).
 #' @param hyper_mu Hyper-mean parameters for data analysis.
 #' @param hyper_prec Hyper-precision parameters for data analysis.
 #' @param alpha_marg Dirichlet prior parameters for the two marginal model probabilities.
@@ -28,7 +28,7 @@
 #' @importFrom nimble getNimbleOption
 #'
 #' @return Returns a list with the posterior sample, R hat statistics, and posterior probabilities for
-#' candidate model selection; the posterior sample may be output to a .csv file
+#' candidate model selection; the posterior sample will be output to a .csv file
 #'
 #' @examples
 #' \dontrun{

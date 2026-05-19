@@ -1,19 +1,19 @@
 #' Compute (log) density of the bivariate distribution
 #'
-#' This function takes in a bivariate x as well as inputs for the
+#' This function takes in a bivariate `x` as well as inputs for the
 #' marginal distributions, means, coefficients of variation, copula,
-#' and Kendall's tau and returns the density function evaluated at x
+#' and Kendall's tau and returns the density function evaluated at `x`
 #'
-#' @param x Bivarate observation
-#' @param marg1 The marginal distribution for endpoint 1 (1 = gamma, 2 = lognormal)
-#' @param m1 The mean of the marginal distribution for endpoint 1
-#' @param c1 The coefficient of variation of the marginal distribution for endpoint 1
-#' @param marg2 The marginal distribution for endpoint 2 (1 = gamma, 2 = lognormal)
-#' @param m2 The mean of the marginal distribution for endpoint 2
-#' @param c2 The coefficient of variation of the marginal distribution for endpoint 2
-#' @param cop The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel)
-#' @param tau Kendall's tau (must be between 0 and 1 for this example)
-#' @param log Boolean that determines whether (1) or not (0) to return density on log scale
+#' @param x The bivarate observation.
+#' @param marg1 The marginal distribution for endpoint 1 (1 = gamma, 2 = lognormal).
+#' @param m1 The mean of the marginal distribution for endpoint 1.
+#' @param c1 The coefficient of variation of the marginal distribution for endpoint 1.
+#' @param marg2 The marginal distribution for endpoint 2 (1 = gamma, 2 = lognormal).
+#' @param m2 The mean of the marginal distribution for endpoint 2.
+#' @param c2 The coefficient of variation of the marginal distribution for endpoint 2.
+#' @param cop The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel).
+#' @param tau The value for Kendall's tau (must be between 0 and 1 for this implementation).
+#' @param log Boolean that determines whether (1) or not (0) to return density on log scale.
 #' @importFrom stats dgamma dlnorm pgamma plnorm pnorm qgamma qlnorm qnorm rexp rgamma rnorm runif
 #'
 #' @return A scalar density or log-density value
@@ -102,19 +102,19 @@ dBivarCopula <- nimble::nimbleFunction(
 
 #' Generate from the bivariate distribution (used only by nimble)
 #'
-#' This function takes in a sample size of n = 1 as well as inputs for the
-#' marginal distributions, means, variances, copula, and Kendall's tau
-#' and returns a bivariate observation x
+#' This function takes in a sample size of `n = 1` as well as inputs for the
+#' marginal distributions, means, coefficients of variation, copula, and Kendall's tau
+#' and returns a bivariate observation `x`
 #'
-#' @param n sample size (must be 1)
-#' @param marg1 The marginal distribution for endpoint 1 (1 = gamma, 2 = lognormal)
-#' @param m1 The mean of the marginal distribution for endpoint 1
-#' @param c1 The coefficient of variation of the marginal distribution for endpoint 1
-#' @param marg2 The marginal distribution for endpoint 2 (1 = gamma, 2 = lognormal)
-#' @param m2 The mean of the marginal distribution for endpoint 2
-#' @param c2 The coefficient of variation of the marginal distribution for endpoint 2
-#' @param cop The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel)
-#' @param tau Kendall's tau (must be between 0 and 1 for this example)
+#' @param n sample size (must be 1).
+#' @param marg1 The marginal distribution for endpoint 1 (1 = gamma, 2 = lognormal).
+#' @param m1 The mean of the marginal distribution for endpoint 1.
+#' @param c1 The coefficient of variation of the marginal distribution for endpoint 1.
+#' @param marg2 The marginal distribution for endpoint 2 (1 = gamma, 2 = lognormal).
+#' @param m2 The mean of the marginal distribution for endpoint 2.
+#' @param c2 The coefficient of variation of the marginal distribution for endpoint 2.
+#' @param cop The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel).
+#' @param tau The value for Kendall's tau (must be between 0 and 1 for this implementation).
 #' @importFrom nimble nimStop nimNumeric ilogit
 #'
 #' @return A bivariate observation

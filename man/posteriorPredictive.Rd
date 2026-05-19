@@ -43,7 +43,7 @@ and \eqn{\tilde{Y}_2 \in} \code{c(bounds2[k, 1], bounds2[k, 2])}.}
 }
 \value{
 Returns a table with posterior predictive probabilities and credible intervals
-for each dose; this table may be output to a .csv file
+for each dose; this table will be output to a .csv file
 }
 \description{
 This function takes in the output from the function \code{approximatePosterior()}.

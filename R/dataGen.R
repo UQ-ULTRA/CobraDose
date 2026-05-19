@@ -1,18 +1,18 @@
 #' Generate observations from the bivariate distribution
 #'
 #' This function takes in a sample size of `n` as well as inputs for the
-#' marginal distributions, means, variances, copula, and Kendall's tau
+#' marginal distributions, means, coefficients of variation, copula, and Kendall's tau
 #' and returns bivariate observations corresponding to the same dose
 #'
-#' @param n sample size
-#' @param marg1 The marginal distribution for endpoint 1 (1 = gamma, 2 = lognormal)
-#' @param m1 The mean of the marginal distribution for endpoint 1
-#' @param c1 The coefficient of variation of the marginal distribution for endpoint 1
-#' @param marg2 The marginal distribution for endpoint 2 (1 = gamma, 2 = lognormal)
-#' @param m2 The mean of the marginal distribution for endpoint 2
-#' @param c2 The coefficient of variation of the marginal distribution for endpoint 2
-#' @param cop The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel)
-#' @param tau Kendall's tau (must be between 0 and 1)
+#' @param n The sample size.
+#' @param marg1 The marginal distribution for endpoint 1 (1 = gamma, 2 = lognormal).
+#' @param m1 The mean of the marginal distribution for endpoint 1.
+#' @param c1 The coefficient of variation of the marginal distribution for endpoint 1.
+#' @param marg2 The marginal distribution for endpoint 2 (1 = gamma, 2 = lognormal).
+#' @param m2 The mean of the marginal distribution for endpoint 2.
+#' @param c2 The coefficient of variation of the marginal distribution for endpoint 2.
+#' @param cop The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel).
+#' @param tau The value for Kendall's tau (must be between 0 and 1).
 #'
 #' @examples
 #' # generate a sample of size 5 from a single dose
@@ -97,23 +97,23 @@ rBivarCop <- function(n, marg1, m1, c1, marg2, m2, c2, cop, tau) {
 #' group sizes and hierarchical structure and returns a sample of `n`
 #' bivariate observations
 #'
-#' @param n sample size
-#' @param gs a vector of group sizes
-#' @param marg1 The marginal distribution for endpoint 1 (1 = gamma, 2 = lognormal)
-#' @param marg2 The marginal distribution for endpoint 2 (1 = gamma, 2 = lognormal)
-#' @param cop The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel)
-#' @param hier boolean to denote that group-specific parameters are not provided
+#' @param n The total sample size (across all groups).
+#' @param gs a vector of group sizes (the sum of `gs` must be `n`).
+#' @param marg1 The marginal distribution for endpoint 1 (1 = gamma, 2 = lognormal).
+#' @param marg2 The marginal distribution for endpoint 2 (1 = gamma, 2 = lognormal).
+#' @param cop The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel).
+#' @param hier boolean to denote that group-specific parameters are not provided.
 #' @param hyper_mu mean hyperparameters used for data generation. The first three inputs are
 #'                 for the \eqn{\mu} parameters of \eqn{m_1} and \eqn{m_2}, \eqn{c_1} and \eqn{c_2}, and logit(\eqn{\tau}).
 #'                 The second three inputs are for \eqn{\sigma} parameters of \eqn{m_1} and \eqn{m_2},
 #'                 \eqn{c_1} and \eqn{c_2}, and logit(\eqn{\tau}).
 #' @param hyper_prec precision hyperparameters used for data generation. The order of the parameters
-#'                   is the same as `hyper_mu`
-#' @param mus_nohier mu parameters for each group (`hier = FALSE`). These are the mean parameters
-#'                   for \eqn{m_1}, \eqn{m_2}, \eqn{c_1}, \eqn{c_2}, and logit(\eqn{\tau}) (in order)
-#' @param sigmas_nohier sigma parameters for each group (`hier = FALSE`). These are the standard
-#'                      deviation parameters for \eqn{m_1}, \eqn{m_2}, \eqn{c_1}, \eqn{c_2}, and logit(\eqn{\tau}) (in order)
-#' @param seed an integer seed used for reproducibility
+#'                   is the same as `hyper_mu`.
+#' @param mus_nohier \eqn{\mu} parameters for each group (`hier = FALSE`). These are the mean parameters
+#'                   for \eqn{m_1}, \eqn{m_2}, \eqn{c_1}, \eqn{c_2}, and logit(\eqn{\tau}) (in order).
+#' @param sigmas_nohier \eqn{\sigma} parameters for each group (`hier = FALSE`). These are the standard
+#'                      deviation parameters for \eqn{m_1}, \eqn{m_2}, \eqn{c_1}, \eqn{c_2}, and logit(\eqn{\tau}) (in order).
+#' @param seed an integer seed used for reproducibility.
 #'
 #' @examples
 #' # generate a sample of size 18 across 4 doses using a hierarchical model

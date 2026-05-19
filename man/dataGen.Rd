@@ -19,17 +19,17 @@ dataGen(
 )
 }
 \arguments{
-\item{n}{sample size}
+\item{n}{The total sample size (across all groups).}
 
-\item{gs}{a vector of group sizes}
+\item{gs}{a vector of group sizes (the sum of \code{gs} must be \code{n}).}
 
-\item{marg1}{The marginal distribution for endpoint 1 (1 = gamma, 2 = lognormal)}
+\item{marg1}{The marginal distribution for endpoint 1 (1 = gamma, 2 = lognormal).}
 
-\item{marg2}{The marginal distribution for endpoint 2 (1 = gamma, 2 = lognormal)}
+\item{marg2}{The marginal distribution for endpoint 2 (1 = gamma, 2 = lognormal).}
 
-\item{cop}{The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel)}
+\item{cop}{The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel).}
 
-\item{hier}{boolean to denote that group-specific parameters are not provided}
+\item{hier}{boolean to denote that group-specific parameters are not provided.}
 
 \item{hyper_mu}{mean hyperparameters used for data generation. The first three inputs are
 for the \eqn{\mu} parameters of \eqn{m_1} and \eqn{m_2}, \eqn{c_1} and \eqn{c_2}, and logit(\eqn{\tau}).
@@ -37,15 +37,15 @@ The second three inputs are for \eqn{\sigma} parameters of \eqn{m_1} and \eqn{m_
 \eqn{c_1} and \eqn{c_2}, and logit(\eqn{\tau}).}
 
 \item{hyper_prec}{precision hyperparameters used for data generation. The order of the parameters
-is the same as \code{hyper_mu}}
+is the same as \code{hyper_mu}.}
 
-\item{mus_nohier}{mu parameters for each group (\code{hier = FALSE}). These are the mean parameters
-for \eqn{m_1}, \eqn{m_2}, \eqn{c_1}, \eqn{c_2}, and logit(\eqn{\tau}) (in order)}
+\item{mus_nohier}{\eqn{\mu} parameters for each group (\code{hier = FALSE}). These are the mean parameters
+for \eqn{m_1}, \eqn{m_2}, \eqn{c_1}, \eqn{c_2}, and logit(\eqn{\tau}) (in order).}
 
-\item{sigmas_nohier}{sigma parameters for each group (\code{hier = FALSE}). These are the standard
-deviation parameters for \eqn{m_1}, \eqn{m_2}, \eqn{c_1}, \eqn{c_2}, and logit(\eqn{\tau}) (in order)}
+\item{sigmas_nohier}{\eqn{\sigma} parameters for each group (\code{hier = FALSE}). These are the standard
+deviation parameters for \eqn{m_1}, \eqn{m_2}, \eqn{c_1}, \eqn{c_2}, and logit(\eqn{\tau}) (in order).}
 
-\item{seed}{an integer seed used for reproducibility}
+\item{seed}{an integer seed used for reproducibility.}
 }
 \value{
 A list of length 3 for use in NIMBLE. Element 1 contains the number of participants, groups, and dose assignments. Element 2 contains the bivariate relative increases. Element 3 contains the data-generating parameters (returned as a check).

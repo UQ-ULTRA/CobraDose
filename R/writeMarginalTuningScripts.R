@@ -11,7 +11,7 @@
 #'   Must have length >= 2 (one entry per dose group). Each element should
 #'   typically be >= 3 to allow stable estimation of group-specific parameters.
 #'   The default `c(6, 4, 4, 4)` corresponds to the four-dose example from
-#'   Cobra-Dose paper.
+#'   COBRA-DOSE paper.
 #' @param data_gen_hyper_mu Hyper-mean parameters used to generate simulated data.
 #' @param data_gen_hyper_prec Hyper-precision parameters used to generate simulated data.
 #' @param prior_alpha_marg Dirichlet prior parameters for the two marginal model probabilities.
@@ -29,10 +29,10 @@
 #' @details
 #' The generated `marg_fun.R` script constructs a list of initial values for
 #' MCMC, with one initial value list per chain. Initial values are designed
-#' so that each of the four (z1, z2) starting combinations is assigned an
+#' so that each of the four (`z1`, `z2`) starting combinations is assigned an
 #' equal number of chains; this requires `mcmc_nchains` to be a positive
 #' multiple of 4. The default `mcmc_nchains = 16` assigns 4 chains per
-#' (z1, z2) combination, matching the configuration used in Cobra-Dose paper.
+#' (`z1`, `z2`) combination, matching the configuration used in COBRA-DOSE paper.
 #' Other valid values are 4, 8, 12, 20, etc. Smaller values run faster but
 #' may give noisier estimates of the posterior model selection probabilities.
 #'
@@ -57,11 +57,11 @@
 #' }
 #'
 #'@section When to re-run prior tuning:
-#' The default `prior_alpha_marg = c(1.625, 1)` was tuned in Cobra-Dose paper
+#' The default `prior_alpha_marg = c(1.625, 1)` was tuned in COBRA-DOSE paper
 #' for a specific setting: total sample size 18, four dose groups of sizes
 #' c(6, 4, 4, 4), and the default `prior_hyper_mu` / `prior_hyper_prec`.
 #' Under that setting, `c(1.625, 1)` is the smallest Dirichlet parameter
-#' producing well-calibrated marginal model selection (see Table 2 of Cobra-Dose paper).
+#' producing well-calibrated marginal model selection (see Table 2 of COBRA-DOSE paper).
 #'
 #' Users applying CobraDose to a substantially different setting --- different
 #' total sample size, different group structure, or different prior

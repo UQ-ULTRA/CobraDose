@@ -24,7 +24,7 @@
 #' @importFrom foreach %dopar%
 #'
 #' @return Returns a table with posterior predictive probabilities and credible intervals
-#' for each dose; this table may be output to a .csv file
+#' for each dose; this table will be output to a .csv file
 #'
 #' @examples
 #' \dontrun{

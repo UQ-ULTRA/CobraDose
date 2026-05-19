@@ -7,31 +7,31 @@
 dBivarCopula(x, marg1, m1, c1, marg2, m2, c2, cop, tau, log = 0)
 }
 \arguments{
-\item{x}{Bivarate observation}
+\item{x}{The bivarate observation.}
 
-\item{marg1}{The marginal distribution for endpoint 1 (1 = gamma, 2 = lognormal)}
+\item{marg1}{The marginal distribution for endpoint 1 (1 = gamma, 2 = lognormal).}
 
-\item{m1}{The mean of the marginal distribution for endpoint 1}
+\item{m1}{The mean of the marginal distribution for endpoint 1.}
 
-\item{c1}{The coefficient of variation of the marginal distribution for endpoint 1}
+\item{c1}{The coefficient of variation of the marginal distribution for endpoint 1.}
 
-\item{marg2}{The marginal distribution for endpoint 2 (1 = gamma, 2 = lognormal)}
+\item{marg2}{The marginal distribution for endpoint 2 (1 = gamma, 2 = lognormal).}
 
-\item{m2}{The mean of the marginal distribution for endpoint 2}
+\item{m2}{The mean of the marginal distribution for endpoint 2.}
 
-\item{c2}{The coefficient of variation of the marginal distribution for endpoint 2}
+\item{c2}{The coefficient of variation of the marginal distribution for endpoint 2.}
 
-\item{cop}{The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel)}
+\item{cop}{The copula model (1 = independence, 2 = Clayton, 3 = Gaussian, 4 = Gumbel).}
 
-\item{tau}{Kendall's tau (must be between 0 and 1 for this example)}
+\item{tau}{The value for Kendall's tau (must be between 0 and 1 for this implementation).}
 
-\item{log}{Boolean that determines whether (1) or not (0) to return density on log scale}
+\item{log}{Boolean that determines whether (1) or not (0) to return density on log scale.}
 }
 \value{
 A scalar density or log-density value
 }
 \description{
-This function takes in a bivariate x as well as inputs for the
+This function takes in a bivariate \code{x} as well as inputs for the
 marginal distributions, means, coefficients of variation, copula,
-and Kendall's tau and returns the density function evaluated at x
+and Kendall's tau and returns the density function evaluated at \code{x}
 }

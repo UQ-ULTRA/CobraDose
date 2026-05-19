@@ -32,7 +32,7 @@ writeCopulaTuningScripts(
 Must have length >= 2 (one entry per dose group). Each element should
 typically be >= 3 to allow stable estimation of group-specific parameters.
 The default \code{c(6, 4, 4, 4)} corresponds to the four-dose example from
-Cobra-Dose paper.}
+COBRA-DOSE paper.}
 
 \item{data_gen_hyper_mu}{Hyper-mean parameters used to generate simulated data.}
 
@@ -81,25 +81,25 @@ The generated \code{cop_fun.R} script fits a Bayesian model in which the
 marginal distributions are fixed to gamma for both biomarkers, while
 the copula family is treated as a discrete unknown selected via the
 latent variable \code{zc} (1 = independence, 2 = Clayton, 3 = Gaussian,
-4 = Gumbel). This follows the second simulation study in Cobra-Dose
+4 = Gumbel). This follows the second simulation study in COBRA-DOSE
 paper, in which copula priors are tuned under the assumption of
 gamma marginals.
 
 Initial values cover the four \code{zc} starting values (one per candidate
 copula); this requires \code{mcmc_nchains} to be a positive multiple of 4.
 The default \code{mcmc_nchains = 16} assigns 4 chains per copula starting
-value, matching the configuration used in Cobra-Dose paper. Other
+value, matching the configuration used in COBRA-DOSE paper. Other
 valid values are 4, 8, 12, 20, etc. Smaller values run faster but may
 give noisier estimates of the posterior model selection probabilities.
 }
 \section{When to re-run prior tuning}{
 
-The default \code{prior_alpha_cop = c(1, 1, 1, 1)} was used in Cobra-Dose
+The default \code{prior_alpha_cop = c(1, 1, 1, 1)} was used in COBRA-DOSE
 paper for a specific setting: total sample size 18, four dose groups
 of sizes c(6, 4, 4, 4), gamma marginals, and the default
 \code{prior_hyper_mu} / \code{prior_hyper_prec}. Under that setting, a uniform
 Dirichlet prior produced well-calibrated copula model selection (see
-Table 3 of Cobra-Dose paper).
+Table 3 of COBRA-DOSE paper).
 
 Users applying CobraDose to a substantially different setting ---
 different total sample size, different group structure, or different
@@ -111,7 +111,7 @@ family is systematically under-selected, increase the corresponding
 entry of \code{alpha_cop}.
 
 If gamma is not an appropriate marginal family for the user's data,
-the calibrated \code{alpha_cop} may not transfer directly; run
+\code{alpha_cop} may need to be calibrated using a different marginal distribution; please run
 \code{writeMarginalTuningScripts()} first to confirm.
 }
 
