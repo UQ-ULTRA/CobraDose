@@ -417,6 +417,7 @@ writeCopulaTuningScripts <- function(
     "",
     "# Compile NIMBLE on workers serially to avoid Cygwin/RTools fork conflicts.",
     "for (worker_idx in seq_along(cl)) {",
+    "  print(paste0('Initializing worker ', worker_idx, ' of ', max(seq_along(cl))))",
     "  parallel::clusterCall(cl[worker_idx], function(path) {",
     "    source(path)",
     "  }, cop_fun_path)",
