@@ -11,7 +11,7 @@ approximatePosterior(
   hyper_mu = c(1, 0.5, 0.25, 0.2, 0.1, 0.25),
   hyper_prec = c(5, 5, 2, 5, 5, 2),
   alpha_marg = c(1.625, 1),
-  alpha_cop = c(1, 1, 1, 1),
+  alpha_cop = c(1, 1, 1.05, 1),
   mcmc_niter = 3500,
   mcmc_nburnin = 1000,
   mcmc_nthin = 1,
@@ -62,11 +62,11 @@ a progress bar will populate in the console to display progress for each MCMC ch
 \examples{
 \dontrun{
 ## get example data set
-data.temp <- cbind(rgamma(18, 2, 1), rgamma(18, 2, 1))
+data.temp <- cbind(rgamma(16, 2, 1), rgamma(16, 2, 1))
 
 ## save posterior approximation results
 approximatePosterior(data = data.temp,
-       group = rep(1:4, c(6, 4, 4, 4)),
+       group = rep(1:4, c(5, 4, 3, 4)),
        hyper_mu = c(1, 0.5, 0.25, 0.2, 0.1, 0.25),
 }
 

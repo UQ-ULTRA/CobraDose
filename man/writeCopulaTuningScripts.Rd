@@ -6,11 +6,11 @@
 \usage{
 writeCopulaTuningScripts(
   output_dir = ".",
-  n = 18,
-  group_sizes = c(6, 4, 4, 4),
+  n = 16,
+  group_sizes = c(5, 4, 3, 4),
   data_gen_hyper_mu = c(1, 0.5, 0.25, 0.2, 0.1, 0.25),
   data_gen_hyper_prec = c(400, 400, 20, 800, 800, 20),
-  prior_alpha_cop = c(1, 1, 1, 1),
+  prior_alpha_cop = c(1, 1, 1.05, 1),
   prior_hyper_mu = c(1, 0.5, 0.25, 0.2, 0.1, 0.25),
   prior_hyper_prec = c(5, 5, 2, 5, 5, 2),
   n_sim = 500,
@@ -31,7 +31,7 @@ writeCopulaTuningScripts(
 \item{group_sizes}{Numeric vector giving the sample size in each dose group.
 Must have length >= 2 (one entry per dose group). Each element should
 typically be >= 3 to allow stable estimation of group-specific parameters.
-The default \code{c(6, 4, 4, 4)} corresponds to the four-dose example from
+The default \code{c(5, 4, 3, 4)} corresponds to the four-dose example from
 COBRA-DOSE paper.}
 
 \item{data_gen_hyper_mu}{Hyper-mean parameters used to generate simulated data.}
@@ -94,9 +94,9 @@ give noisier estimates of the posterior model selection probabilities.
 }
 \section{When to re-run prior tuning}{
 
-The default \code{prior_alpha_cop = c(1, 1, 1, 1)} was used in COBRA-DOSE
-paper for a specific setting: total sample size 18, four dose groups
-of sizes c(6, 4, 4, 4), gamma marginals, and the default
+The default \code{prior_alpha_cop = c(1, 1, 1.05, 1)} was used in COBRA-DOSE
+paper for a specific setting: total sample size 16, four dose groups
+of sizes c(5, 4, 3, 4), gamma marginals, and the default
 \code{prior_hyper_mu} / \code{prior_hyper_prec}. Under that setting, a uniform
 Dirichlet prior produced well-calibrated copula model selection (see
 Table 3 of COBRA-DOSE paper).
@@ -120,8 +120,8 @@ If gamma is not an appropriate marginal family for the user's data,
 # Generate the two scripts:
 out <- writeCopulaTuningScripts(
   output_dir = tempdir(),
-  n = 18,
-  group_sizes = c(6, 4, 4, 4),
+  n = 16,
+  group_sizes = c(5, 4, 3, 4),
   overwrite = TRUE
 )
 

@@ -10,7 +10,7 @@
 #' @param group_sizes Numeric vector giving the sample size in each dose group.
 #'   Must have length >= 2 (one entry per dose group). Each element should
 #'   typically be >= 3 to allow stable estimation of group-specific parameters.
-#'   The default `c(6, 4, 4, 4)` corresponds to the four-dose example from
+#'   The default `c(5, 4, 3, 4)` corresponds to the four-dose example from
 #'   COBRA-DOSE paper.
 #' @param data_gen_hyper_mu Hyper-mean parameters used to generate simulated data.
 #' @param data_gen_hyper_prec Hyper-precision parameters used to generate simulated data.
@@ -43,8 +43,8 @@
 #' # Generate the two scripts:
 #' writeMarginalTuningScripts(
 #'   output_dir = tempdir(),
-#'   n = 18,
-#'   group_sizes = c(6, 4, 4, 4),
+#'   n = 16,
+#'   group_sizes = c(5, 4, 3, 4),
 #'   overwrite = TRUE
 #' )
 #'
@@ -58,8 +58,8 @@
 #'
 #'@section When to re-run prior tuning:
 #' The default `prior_alpha_marg = c(1.625, 1)` was tuned in COBRA-DOSE paper
-#' for a specific setting: total sample size 18, four dose groups of sizes
-#' c(6, 4, 4, 4), and the default `prior_hyper_mu` / `prior_hyper_prec`.
+#' for a specific setting: total sample size 16, four dose groups of sizes
+#' c(5, 4, 3, 4), and the default `prior_hyper_mu` / `prior_hyper_prec`.
 #' Under that setting, `c(1.625, 1)` is the smallest Dirichlet parameter
 #' producing well-calibrated marginal model selection (see Table 2 of COBRA-DOSE paper).
 #'
@@ -75,8 +75,8 @@
 #' @export
 writeMarginalTuningScripts <- function(
     output_dir = ".",
-    n = 18,
-    group_sizes = c(6, 4, 4, 4),
+    n = 16,
+    group_sizes = c(5, 4, 3, 4),
 
     data_gen_hyper_mu = c(1, 0.5, 0.25, 0.2, 0.1, 0.25),
     data_gen_hyper_prec = c(400, 400, 20, 800, 800, 20),

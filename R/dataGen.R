@@ -116,8 +116,8 @@ rBivarCop <- function(n, marg1, m1, c1, marg2, m2, c2, cop, tau) {
 #' @param seed an integer seed used for reproducibility.
 #'
 #' @examples
-#' # generate a sample of size 18 across 4 doses using a hierarchical model
-#' dataGen(n = 18, gs = c(6, 4, 4, 4), marg1 = 1, marg2 = 1,
+#' # generate a sample of size 16 across 4 doses using a hierarchical model
+#' dataGen(n = 16, gs = c(5, 4, 3, 4), marg1 = 1, marg2 = 1,
 #'         cop = 1, hyper_mu = c(1, 0.5, 0.25, 0.2, 0.1, 0.25),
 #'         hyper_prec = c(400, 400, 20, 800, 800, 20), seed = 1)
 #'
